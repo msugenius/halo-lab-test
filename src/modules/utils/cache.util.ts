@@ -1,5 +1,5 @@
 import { FastifyRedis } from "@fastify/redis";
-import { RedisRefreshDto } from "../dto/redis.refresh.dto";
+import { RedisRefreshDto } from "./dto/redis.refresh.dto";
 
 export async function refreshRedis(
   redis: FastifyRedis,

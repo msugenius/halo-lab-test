@@ -3,7 +3,7 @@ import { FastifyRedis } from "@fastify/redis";
 import { findByTitle } from "./film.service";
 import AppStore from "../utils/app.store";
 import { refreshRedis } from "../utils/cache.util";
-import { RedisRefreshDto } from "../dto/redis.refresh.dto";
+import { RedisRefreshDto } from "../utils/dto/redis.refresh.dto";
 import { AppStoreInstance } from "../../main";
 
 async function filmRoutes(server: FastifyInstance) {
