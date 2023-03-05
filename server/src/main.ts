@@ -11,13 +11,11 @@ server.get("/healthcheck", async () => {
   return { status: "OK" };
 });
 
-server
-  .register(fastifyRedis, {
-    port: 6379,
-  })
-  .after((err) => {
-    console.error(err);
-  });
+server.register(fastifyRedis, {
+  port: 8081,
+  host: "0.0.0.0",
+  connectTimeout: 20000,
+});
 server.register(filmRoutes, { prefix: "film" }).after((err) => {
   console.error(err);
 });
