@@ -11,12 +11,18 @@ server.get("/healthcheck", async () => {
   return { status: "OK" };
 });
 
-async function main() {
-  server.register(fastifyRedis, {
-    port: 8081,
+server
+  .register(fastifyRedis, {
+    port: 6379,
+  })
+  .after((err) => {
+    console.error(err);
   });
-  server.register(filmRoutes, { prefix: "film" });
+server.register(filmRoutes, { prefix: "film" }).after((err) => {
+  console.error(err);
+});
 
+async function main() {
   try {
     server.listen({ port: Number(process.env.PORT), host: "0.0.0.0" });
     console.log(`Server is up on port ${process.env.PORT}`);
