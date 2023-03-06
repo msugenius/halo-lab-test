@@ -17,6 +17,12 @@ Next, you need to rename the .env.example file to a .env and fill the value of t
   cd halo-lab-test 
   docker compose up -d
 ```
+
+If you want to stop service you can use following script:
+```bash
+  docker compose down
+```
+
 ## Usage/Examples
 The application has only two endpoints:
 
