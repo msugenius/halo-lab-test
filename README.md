@@ -12,7 +12,7 @@ Firstly you need to clone repo.
   git clone https://github.com/msugenius/halo-lab-test.git
 ```
 
-Next, you need to copy the .env.example file to create a .env file in the server directory and fill in the value of the DATABASE_URL property. Now all that remains is to build our container:
+Next, you need to rename the .env.example file to a .env and fill the value of the DATABASE_URL property. Now all that remains is to build our container:
 ```bash
   cd halo-lab-test 
   docker compose up -d
