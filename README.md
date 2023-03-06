@@ -5,7 +5,7 @@ This application is a test task for Halo Lab.
 
 ## Installation
 
-To install the project, you need Docker Engine and free ports 80, 8080, 6379. You can find instructions for installing Docker [here](https://docs.docker.com/get-docker/).
+To install the project, you need Docker Engine and free port 80. You can find instructions for installing Docker [here](https://docs.docker.com/get-docker/).
 
 Firstly you need to clone repo.
 ```bash
