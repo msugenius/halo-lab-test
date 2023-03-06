@@ -11,16 +11,11 @@ server.get("/healthcheck", async () => {
   return { status: "OK" };
 });
 
-server
-  .register(fastifyRedis, {
-    port: 6379,
-  })
-  .after((err) => {
-    console.error(err);
-  });
-server.register(filmRoutes, { prefix: "film" }).after((err) => {
-  console.error(err);
+server.register(fastifyRedis, {
+  port: process.env.REDIS_PORT,
+  host: process.env.REDIS_HOST,
 });
+server.register(filmRoutes, { prefix: "film" });
 
 async function main() {
   try {

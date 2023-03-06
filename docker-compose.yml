@@ -4,13 +4,15 @@ services:
     restart: unless-stopped
     build: ./server
     env_file: ./server/.env
+    depends_on:
+      - redis
+  redis:
+    image: "bitnami/redis:latest"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
   nginx:
-    image: nginx:1.23
+    image: nginx:stable
     ports:
       - "80:80"
     volumes:
       - ./nginx:/etc/nginx/conf.d:ro
-  redis:
-    image: "redis:alpine"
-    ports:
-      - "6379:6379"
