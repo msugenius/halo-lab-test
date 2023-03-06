@@ -42,3 +42,22 @@ If there is no information about such a movie, the following will be returned:
 Error: "There isn't enough info about this film in our DB."
 ```
 Regardless of the result of the Redis cache and application cache will be updated.
+
+## FAQ
+If you encountered the following error:
+
+```error
+Error response from daemon: 
+Ports are not available: exposing port TCP 0.0.0.0:80 -> 0.0.0.0:0: listen tcp 0.0.0.0:80:
+bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+```
+this indicates that the port 80 is already being listened to by some application. To solve this problem, use following shell script
+
+Windows:
+```bash
+NET stop HTTP
+```
+Linux:
+```bash
+sudo lsof -i tcp:80
+```
